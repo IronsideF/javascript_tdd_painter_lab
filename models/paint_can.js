@@ -10,4 +10,8 @@ PaintCan.prototype.empty = function () {
     this.litres = 0
 }
 
+PaintCan.prototype.reducePaint = function (amount) {
+    this.litres -= amount
+}
+
 module.exports = PaintCan;
