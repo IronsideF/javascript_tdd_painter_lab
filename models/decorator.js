@@ -42,14 +42,14 @@ Decorator.prototype.usePaint = function (room) {
 }
 
 Decorator.prototype.tossCans = function () {
-    emptyCans = []
+    emptyCans = 0
     for (can of this.paintStock) {
         if (can.litres === 0) {
-            emptyCans.push(can)
+            emptyCans +=1
         }
     } 
     this.paintStock.sort((a, b) => {return a.litres - b.litres});
-    this.paintStock.splice(0, emptyCans.length);
+    this.paintStock.splice(0, emptyCans);
 }
 
 module.exports = Decorator;
