@@ -7,6 +7,7 @@ describe('Decorator', function () {
     let decorator;
     let paintCan1;
     let paintCan2;
+    let paintCan3;
     let room1;
     let room2;
 
@@ -14,6 +15,7 @@ describe('Decorator', function () {
         decorator = new Decorator()
         paintCan1 = new PaintCan(10)
         paintCan2 = new PaintCan(15)
+        paintCan3 = new PaintCan(25)
         room1 = new Room(10)
         room2 = new Room(50)
     })
@@ -67,4 +69,13 @@ describe('Decorator', function () {
         const actual = paintCan1.litres;
         assert.strictEqual(actual, 0);
     });
+    it('should remove cans', function () {
+        decorator.addCan(paintCan1);
+        decorator.addCan(paintCan2);
+        decorator.addCan(paintCan3);
+        decorator.paintRoom(room1);
+        decorator.tossCans();
+        const actual = decorator.paintStock.length;
+        assert.strictEqual(actual, 2);
+    })
 })
